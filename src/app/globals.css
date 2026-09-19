@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-:root {
+/* :root {
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -23,4 +23,61 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+} */
+
+/*
+  COLOR PALETTE 
+  (Light To Dark) 
+  (From: https://coolors.co/palette/ede0d4-e6ccb2-ddb892-b08968-7f5539-9c6644) 
+
+  #fcf7f2 --> Lightest for Layered Background (Navbar/Footer/Card/ any layered component)
+  ffebd9 --> Light (for background)
+  EDE0D4 --> Light / Grey-ish (for background)
+  E6CCB2
+  DDB892
+  B08968
+  9C6644
+  7F5539
+  #422512 --> 2nd Dark
+  #302720 --> Darkest (For Text/Dark Mode)
+*/
+
+@theme {
+  /* Background Colors */
+  --color-background: #fff7f0;
+  --color-background-light: #ffebd9;
+  --color-background-grey: #EDE0D4;
+
+  /* Foreground/Text Colors */
+  --color-foreground: #422512;
+
+  /* Font Sizes */
+  --text-heading-1: 60px;
+  --text-heading-2: 50px;
+  --text-heading-3: 40px;
+  --text-heading-4: 36px;
+  --text-heading-5: 30px;
+  --text-heading-6: 24px;
+
+  --text-body: 16px;
+  --text-caption-1: 12px;
+  --text-caption-2: 10px;
+
+  /* Font Weights */
+  --font-weight-bold: 700;
+  --font-weight-medium: 500;
+  --font-weight-regular: 400;
 }
+
+@layer theme {
+  .dark {
+    --color-background: #302720;
+    --color-foreground: #EDE0D4;
+  }
+}
+
+/* body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+} */
