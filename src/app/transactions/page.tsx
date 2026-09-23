@@ -11,6 +11,12 @@ interface IProps {
 const Transactions = async ({ searchParams }: IProps) => {
   const { title } = await searchParams;
 
+  await new Promise((resolve) => {
+    setTimeout(() => {
+      resolve("intentional delay");
+    }, 2000);
+  });
+
   return <div>Transactions {title}</div>;
 };
 

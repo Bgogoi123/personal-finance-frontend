@@ -15,9 +15,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en">
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+      <body className="min-h-full flex flex-col bg-background-grey text-foreground">
         <Header />
-        {children}
+        <div className="p-4 flex flex-col gap-0.5 h-225">{children}</div>
         <Footer />
       </body>
     </html>
