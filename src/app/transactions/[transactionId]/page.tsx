@@ -21,6 +21,9 @@ export const generateMetadata = async ({
 const TransactionDetails = async ({ params }: IProps) => {
   const transactionId = (await params).transactionId;
 
+  // if (transactionId === "111")
+  //   throw new Error("Error Loading Transaction Detail");
+
   return <div>Transaction Details of transaction with ID {transactionId}</div>;
 };
 

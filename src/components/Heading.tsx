@@ -1,10 +1,11 @@
 "use client";
 
+import { ReactNode } from "react";
 import { JSX } from "react/jsx-runtime";
 import { twMerge } from "tailwind-merge";
 
 interface IHeadingProps {
-  children: string;
+  children: ReactNode;
   className?: string;
   headingSize: 1 | 2 | 3 | 4 | 5 | 6;
 }

@@ -26,7 +26,7 @@ body {
 } */
 
 /*
-  COLOR PALETTE 
+  COLOR PALETTE 1
   (Light To Dark) 
   (From: https://coolors.co/palette/ede0d4-e6ccb2-ddb892-b08968-7f5539-9c6644) 
 
@@ -36,20 +36,43 @@ body {
   E6CCB2
   DDB892
   B08968
-  9C6644
+  9C6644 --> Primary button/action color
   7F5539
   #422512 --> 2nd Dark
   #302720 --> Darkest (For Text/Dark Mode)
 */
 
+/*
+    COLOR  PALETTE  2 (LIGHT TO DARK)
+    (Link:  https://coolors.co/palette/f2dfd7-fef9ff-d4c1ec-9f9fed-173b90)
+    (Dashboard/Website View: https://coolors.co/visualizer/f2dfd7-fef9ff-d4c1ec-9f9fed-173b90)
+
+    ffebd9 --> Light (for background)
+    F6F7FF --> Light / Grey-ish (for background)
+    223154 --> dark (for light theme text color & dark theme background)
+
+    Actual Palette Colors:
+    fef9ff --> main background
+    f2dfd7
+    d4c1ec
+    9f9fed --> Primary
+    173b90 
+
+*/
+
 @theme {
   /* Background Colors */
-  --color-background: #fff7f0;
+  --color-background: #fef9ff;
+  --color-background-white: #ffffff;
   --color-background-light: #ffebd9;
-  --color-background-grey: #EDE0D4;
+  --color-background-grey: #F6F7FF;
+  --color-primary: #9f9fed;
 
   /* Foreground/Text Colors */
-  --color-foreground: #422512;
+  --color-foreground: #223154;
+  --color-foreground-light: #F5F9FF;
+  --color-foreground-primary: #9f9fed;
+  --color-foreground-primary-dark: #173b90;
 
   /* Font Sizes */
   --text-heading-1: 60px;
@@ -69,10 +92,18 @@ body {
   --font-weight-regular: 400;
 }
 
+
+/* Not Customized */
 @layer theme {
   .dark {
-    --color-background: #302720;
-    --color-foreground: #EDE0D4;
+    --color-background: #223154;
+    --color-background-white: #444A4F;
+    --color-background-light: #1C2C52;
+    --color-background-grey: #50638F;
+    --color-primary: #173b90;
+
+    --color-foreground: #F5F9FF;
+
   }
 }
 
@@ -80,4 +111,40 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+} */
+
+/* 
+@theme {
+
+  --color-background: #fff7f0;
+  --color-background-light: #ffebd9;
+  --color-background-grey: #EDE0D4;
+  --color-primary: #9C6644;
+
+
+  --color-foreground: #422512;
+
+
+  --text-heading-1: 60px;
+  --text-heading-2: 50px;
+  --text-heading-3: 40px;
+  --text-heading-4: 36px;
+  --text-heading-5: 30px;
+  --text-heading-6: 24px;
+
+  --text-body: 16px;
+  --text-caption-1: 12px;
+  --text-caption-2: 10px;
+
+  
+  --font-weight-bold: 700;
+  --font-weight-medium: 500;
+  --font-weight-regular: 400;
+}
+
+@layer theme {
+  .dark {
+    --color-background: #302720;
+    --color-foreground: #EDE0D4;
+  }
 } */
