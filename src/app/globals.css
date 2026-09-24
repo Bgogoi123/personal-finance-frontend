@@ -60,6 +60,8 @@ body {
 
 */
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   /* Background Colors */
   --color-background: #fef9ff;
