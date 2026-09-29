@@ -19,12 +19,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="en" suppressHydrationWarning>
       <body
         className={twMerge(
-          "min-h-full flex flex-col bg-background-grey text-foreground"
+          "min-h-full flex flex-col bg-background-grey text-foreground relative"
         )}
       >
         <Providers>
           <Header />
-          <div className="p-4 flex flex-col gap-0.5 h-225">{children}</div>
+          <div className="p-4 flex flex-col gap-0.5">{children}</div>
           <Footer />
         </Providers>
       </body>
