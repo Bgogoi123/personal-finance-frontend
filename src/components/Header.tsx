@@ -4,11 +4,21 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
+import { usePathname } from "next/navigation";
 import LogoSrc from "../assets/logo/FCLogo.svg";
+import { twMerge } from "tailwind-merge";
+
+const NAV_OPTIONS: { href: string; name: string }[] = [
+  { href: "/login", name: "Login" },
+  { href: "/signup", name: "SignUp" },
+  { href: "/transactions", name: "Transactions" },
+  { href: "/assistance", name: "AI Assistant" },
+];
 
 const Header = () => {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const pathname = usePathname();
 
   function handeChangeTheme() {
     setTheme((prev) => (prev === "dark" ? "light" : "dark"));
@@ -27,25 +37,26 @@ const Header = () => {
       </Link>
 
       <div className="ml-auto flex flex-row gap-4 items-center text-primary">
-        <Link href="/login" className="hover:text-primary-dark">
-          Login
-        </Link>
-        <Link href="/signup" className="hover:text-primary-dark">
-          SignUp
-        </Link>
-        <Link href="/transactions" className="hover:text-primary-dark">
-          Transactions
-        </Link>
-        <Link href="/assistance" className="hover:text-primary-dark">
-          AI Assistant
-        </Link>
+        {NAV_OPTIONS.map((option, i) => (
+          <Link
+            key={i}
+            href={option.href}
+            className={twMerge(
+              "hover:text-primary-dark",
+              pathname === option.href
+                ? "text-primary-300 border-b border-b-primary-300"
+                : "text-primary-100"
+            )}
+          >
+            {option.name}
+          </Link>
+        ))}
 
         <button
           className="cursor-pointer min-w-17.5 hover:text-primary-dark"
           onClick={() => handeChangeTheme()}
         >
           {theme === "light" ? "☀️ Light" : "🌙 Dark"}
-          {/* <Image src={LogoSrc} alt="Theme Switch Icon" width={40} /> */}
         </button>
       </div>
     </header>

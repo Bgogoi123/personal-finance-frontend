@@ -4,6 +4,7 @@ import Form from "next/form";
 import Link from "next/link";
 import TextInput from "@/components/ui/TextInput";
 import { signUpAction } from "@/app/form-actions";
+import Button from "@/components/ui/Button";
 
 const SignUp = () => {
   return (
@@ -37,12 +38,7 @@ const SignUp = () => {
       </div>
 
       <div className="w-full pt-4 flex flex-col gap-4">
-        <button
-          type="submit"
-          className="rounded-sm w-full bg-primary px-4 py-1 cursor-pointer text-foreground-light"
-        >
-          Sign Up
-        </button>
+        <Button>Sign Up</Button>
 
         <div className="flex gap-2 w-full justify-center">
           <label className="text-gray-400">Already a Member?</label>{" "}
