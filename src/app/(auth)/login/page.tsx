@@ -1,9 +1,18 @@
+"use client";
+
 import { loginAction } from "@/app/form-actions";
+import Button from "@/components/ui/Button";
 import TextInput from "@/components/ui/TextInput";
 import Form from "next/form";
 import Link from "next/link";
+import { useState } from "react";
 
 const Login = () => {
+  const [data, setData] = useState<{
+    identifier: string;
+    password: string;
+  }>({ identifier: "", password: "" });
+
   return (
     <Form
       action={loginAction}
@@ -13,6 +22,10 @@ const Login = () => {
         label="Username or Email or Phone Number"
         name="identifier"
         id="identifier"
+        value={data.identifier}
+        onChange={(e) => {
+          setData((prev) => ({ ...prev, identifier: e.target.value }));
+        }}
       />
 
       <TextInput
@@ -20,14 +33,13 @@ const Login = () => {
         name="password"
         id="password"
         type="password"
+        value={data.password}
+        onChange={(e) => {
+          setData((prev) => ({ ...prev, password: e.target.value }));
+        }}
       />
 
-      <button
-        type="submit"
-        className="rounded-sm bg-primary px-4 py-1 cursor-pointer text-foreground-light"
-      >
-        Login
-      </button>
+      <Button type="submit">Login</Button>
 
       <div className="flex gap-2 w-full pt-10 justify-center">
         <label className="text-gray-400">Not a Member?</label>{" "}
