@@ -5,8 +5,7 @@ import {
   ReactNode,
 } from "react";
 import { twMerge } from "tailwind-merge";
-
-type Variant = "filled" | "outlined" | "plain";
+import { Variant } from "./types";
 
 interface ButtonProps {
   children: ReactNode;
@@ -32,8 +31,8 @@ const Button = ({
         variant === "filled"
           ? "bg-primary-100 hover:bg-primary-200 text-foreground-light"
           : variant === "outlined"
-          ? "rounded-sm outline-0 border border-primary-100 hover:bg-primary-200 focus:border-primary"
-          : "rounded-sm outline-0 hover:bg-primary-50"
+          ? "rounded-sm outline-0 border border-primary-100 text-primary-200 hover:bg-gray-100 focus:bg-gray-100 focus:border-primary-200"
+          : "rounded-sm outline-0 hover:bg-primary-50 focus:bg-primary-50 text-primary-200"
       )}
       onClick={onClick}
     >

@@ -2,9 +2,7 @@
 
 import {
   ChangeEventHandler,
-  DetailedHTMLProps,
   HTMLInputTypeAttribute,
-  InputHTMLAttributes,
   ReactNode,
   useEffect,
   useState,
@@ -14,8 +12,7 @@ import EyeOffIcon from "@/assets/icons/eye-off.svg";
 import Button from "./Button";
 import Image from "next/image";
 import { twMerge } from "tailwind-merge";
-
-type TextInputVariant = "filled" | "outlined" | "standard";
+import { Variant } from "./types";
 
 interface TextInputProps {
   defaultValue?: string | number | readonly string[];
@@ -26,9 +23,10 @@ interface TextInputProps {
   onChange?: ChangeEventHandler<HTMLInputElement, HTMLInputElement>;
   endIcon?: ReactNode;
   startIcon?: ReactNode;
+  isRequired?: boolean;
   type?: HTMLInputTypeAttribute;
   value?: string | number | readonly string[];
-  variant?: TextInputVariant;
+  variant?: Variant;
 }
 
 const TextInput = ({
@@ -37,6 +35,7 @@ const TextInput = ({
   defaultValue,
   endIcon,
   id,
+  isRequired,
   name,
   onChange,
   startIcon,
@@ -53,7 +52,7 @@ const TextInput = ({
   }, []);
 
   return (
-    <div className="flex flex-col gap-1 w-full">
+    <div className="flex flex-col gap-1">
       <label htmlFor={id} className="text-gray-500">
         {label}
       </label>
@@ -61,7 +60,7 @@ const TextInput = ({
       {type === "password" ? (
         <div
           className={twMerge(
-            "rounded-sm outline-0 pr-2  flex items-center justify-between gap-2 ",
+            "rounded-sm outline-0 pr-2 flex items-center justify-between gap-2",
             variant === "filled"
               ? "bg-primary-50 hover:bg-primary focus:bg-primary has-[input:focus]:bg-primary-100 has-[button:focus]:bg-primary-100"
               : variant === "outlined"
@@ -70,6 +69,7 @@ const TextInput = ({
           )}
         >
           <input
+            required={isRequired}
             type={isVisible ? "text" : "password"}
             name={name}
             id={id}
@@ -81,13 +81,14 @@ const TextInput = ({
           <Button
             classname="p-1 shadow-none"
             onClick={() => setIsVisible((prev) => !prev)}
-            variant="plain"
+            variant="standard"
           >
             <Image alt="Eye icon" src={isVisible ? EyeOffIcon : EyeIcon} />
           </Button>
         </div>
       ) : (
         <input
+          required={isRequired}
           type={type ?? "text"}
           name={name}
           id={id}
